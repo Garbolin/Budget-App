@@ -9,6 +9,7 @@ import Intro from "../components/Intro";
 
 //library
 import { toast } from "react-toastify";
+import Error from "./Error";
 
 //loader
 export function dashboardLoader() {
@@ -21,6 +22,7 @@ export async function dashboardAction({ request }) {
   const data = await request.formData();
   const formData = Object.fromEntries(data);
   try {
+    throw new Error("ya done");
     localStorage.setItem("userName", JSON.stringify(formData.userName));
     return toast.success(`Welcome, ${formData.userName}`);
   } catch (e) {
