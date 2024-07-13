@@ -6,6 +6,7 @@ import { fetchData } from "../helpers";
 
 //components
 import Intro from "../components/Intro";
+import AddBudgetForm from "../components/AddBudgetForm";
 
 //library
 import { toast } from "react-toastify";
@@ -14,7 +15,8 @@ import Error from "./Error";
 //loader
 export function dashboardLoader() {
   const userName = fetchData("userName");
-  return { userName };
+  const budgets = fetchData("budgets");
+  return { userName, budgets };
 }
 
 //action
@@ -22,7 +24,6 @@ export async function dashboardAction({ request }) {
   const data = await request.formData();
   const formData = Object.fromEntries(data);
   try {
-    throw new Error("ya done");
     localStorage.setItem("userName", JSON.stringify(formData.userName));
     return toast.success(`Welcome, ${formData.userName}`);
   } catch (e) {
@@ -31,8 +32,27 @@ export async function dashboardAction({ request }) {
 }
 
 const Dashboard = () => {
-  const { userName } = useLoaderData();
-  return <>{userName ? <p>{userName}</p> : <Intro />}</>;
+  const { userName, budgets } = useLoaderData();
+  return (
+    <>
+      {userName ? (
+        <div>
+          <h1>
+            Welcome back, <span className="accent">{userName}</span>
+          </h1>
+          <div className="grid-sm">
+            <div className="grid-gl">
+              <div className="flex-gl">
+                <AddBudgetForm />
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <Intro />
+      )}
+    </>
+  );
 };
 
 export default Dashboard;
