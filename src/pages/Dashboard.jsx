@@ -9,8 +9,9 @@ import Intro from "../components/Intro";
 import AddBudgetForm from "../components/AddBudgetForm";
 import AddExpenseForm from "../components/AddExpenseForm";
 
-//library
+//library imports
 import { toast } from "react-toastify";
+
 import Error from "./Error";
 
 //loader
@@ -75,15 +76,15 @@ const Dashboard = () => {
           </h1>
           <div className="grid-sm">
             {budgets && budgets.length > 0 ? (
-              <div className="grid-gl">
-                <div className="flex-gl">
+              <div className="grid-lg">
+                <div className="flex-lg">
                   <AddBudgetForm />
                   <AddExpenseForm budgets={budgets} />
                 </div>
               </div>
             ) : (
               <div className="grid-sm">
-                <p>Personal budgeting is the secreet to financial freedom.</p>
+                <p>Personal budgeting is the secret to financial freedom.</p>
                 <p>Create a budget to get started!</p>
               </div>
             )}

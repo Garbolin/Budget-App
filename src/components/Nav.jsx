@@ -1,5 +1,7 @@
-//assets
+//rrd imports
 import { Form, NavLink } from "react-router-dom";
+
+//assets
 import logomark from "../assets/logomark.svg";
 
 //library imports
@@ -15,7 +17,7 @@ const Nav = ({ userName }) => {
       {userName && (
         <Form
           method="post"
-          action="/logout"
+          action="logout"
           onSubmit={(event) => {
             if (!confirm("Delete user and all data?")) {
               event.preventDefault();

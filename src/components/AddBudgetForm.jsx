@@ -1,7 +1,7 @@
 //react Imports
 import { useEffect, useRef } from "react";
 
-//rrd impors
+//rrd imports
 import { Form, useFetcher } from "react-router-dom";
 
 //library Imports
