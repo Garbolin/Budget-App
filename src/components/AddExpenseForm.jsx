@@ -51,7 +51,7 @@ const AddExpenseForm = ({ budgets }) => {
               step="0.01"
               inputMode="decimal"
               name="newExpenseAmount"
-              id="newExpenseAmoun"
+              id="newExpenseAmount"
               placeholder="e.g., 3.50€"
               required
             />

@@ -9,6 +9,7 @@ import Intro from "../components/Intro";
 import AddBudgetForm from "../components/AddBudgetForm";
 import AddExpenseForm from "../components/AddExpenseForm";
 import BudgetItem from "../components/BudgetItem";
+import Table from "../components/Table";
 
 //library imports
 import { toast } from "react-toastify";
@@ -19,7 +20,8 @@ import Error from "./Error";
 export function dashboardLoader() {
   const userName = fetchData("userName");
   const budgets = fetchData("budgets");
-  return { userName, budgets };
+  const expenses = fetchData("expenses");
+  return { userName, budgets, expenses };
 }
 
 //action
@@ -67,11 +69,11 @@ export async function dashboardAction({ request }) {
 }
 
 const Dashboard = () => {
-  const { userName, budgets } = useLoaderData();
+  const { userName, budgets, expenses } = useLoaderData();
   return (
     <>
       {userName ? (
-        <div>
+        <div className="dashboard">
           <h1>
             Welcome back, <span className="accent">{userName}</span>
           </h1>
@@ -88,6 +90,16 @@ const Dashboard = () => {
                     <BudgetItem key={budget.id} budget={budget} />
                   ))}
                 </div>
+                {expenses && expenses.length > 0 && (
+                  <div className="grid-md">
+                    <h2>Recent Expenses</h2>
+                    <Table
+                      expenses={expenses.sort(
+                        (a, b) => b.createdAt - a.createdAt
+                      )}
+                    />
+                  </div>
+                )}
               </div>
             ) : (
               <div className="grid-sm">
