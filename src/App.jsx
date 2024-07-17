@@ -2,7 +2,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard, { dashboardAction, dashboardLoader } from "./pages/Dashboard";
 import Error from "./pages/Error";
-import ExpensesPage, { expensesLoader } from "./pages/ExpensesPage";
+import ExpensesPage, {
+  expensesAction,
+  expensesLoader,
+} from "./pages/ExpensesPage";
 
 //layouts
 import Main, { mainLoader } from "./layouts/Main";
@@ -32,6 +35,7 @@ const router = createBrowserRouter([
         path: "expenses",
         element: <ExpensesPage />,
         loader: expensesLoader,
+        action: expensesAction,
       },
       {
         path: "logout",
