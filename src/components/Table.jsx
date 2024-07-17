@@ -1,14 +1,14 @@
 //component import
 import ExpenseItem from "./ExpenseItem";
 
-const Table = ({ exoenses }) => {
+const Table = ({ expenses }) => {
   return (
     <div className="table">
       <table>
         <thead>
           <tr>
             {["Name", "Amount", "Date"].map((i, index) => (
-              <th key={index}>i</th>
+              <th key={index}>{i}</th>
             ))}
           </tr>
         </thead>

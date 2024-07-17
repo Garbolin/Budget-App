@@ -2,6 +2,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard, { dashboardAction, dashboardLoader } from "./pages/Dashboard";
 import Error from "./pages/Error";
+import ExpensesPage, { expensesLoader } from "./pages/ExpensesPage";
 
 //layouts
 import Main, { mainLoader } from "./layouts/Main";
@@ -21,11 +22,16 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: "/",
+        index: true,
         element: <Dashboard />,
         loader: dashboardLoader,
         action: dashboardAction,
         errorElement: <Error />,
+      },
+      {
+        path: "expenses",
+        element: <ExpensesPage />,
+        loader: expensesLoader,
       },
       {
         path: "logout",

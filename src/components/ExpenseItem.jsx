@@ -1,4 +1,4 @@
-import { formatDateToLocaleString } from "../helpers";
+import { formatCurrency, formatDateToLocaleString } from "../helpers";
 
 const ExpenseItem = ({ expense }) => {
   return (
