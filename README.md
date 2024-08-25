@@ -1,5 +1,5 @@
 # Budget App 💸
 ## 🔗 Link to [Budget App]
-![image](https://github.com/user-attachments/assets/9a5e5e99-c963-490e-8ee6-125043d3ec12)
+![587shots_so](https://github.com/user-attachments/assets/40004fd2-7b29-4331-be2c-8e4f28e39a9e)
 
 🎯To learn React, with vite
